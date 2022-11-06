@@ -1,7 +1,10 @@
 from tkinter import *
 from PIL import Image, ImageTk
 import random
-import music_player 
+import navigate_gui
+import track_gui
+import todo_gui
+import os
 
 window = Tk()
 
@@ -25,17 +28,16 @@ my_label = Label(image=img)
 my_label.img = img  # Save reference to image.
 my_label.pack()
 
-btn1 = Button(window, text = "Track a Friend", font='Helvetica 9 bold', padx = 20, pady = 15)
+btn1 = Button(window, text = "Track a Friend", font='Helvetica 9 bold', padx = 20, pady = 15, command = lambda: track_gui.findFriendPage(window))
 btn1.place(x=70, y=220)
 
-btn2 = Button(window, text = "FInd a Camp Site", font='Helvetica 9 bold', padx = 15, pady = 15)
+btn2 = Button(window, text = "FInd a Camp Site", font='Helvetica 9 bold', padx = 15, pady = 15, command = lambda: navigate_gui.findCampPage(window))
 btn2.place(x=210, y=220)
 
-btn3 = Button(window, text = "Music", font='Helvetica 9 bold',padx = 43, pady = 15, command = lambda: music_player.musicPage(window))
-btn3.place(x=70, y=290)
+btn4 = Button(window, text = "To Do List", font='Helvetica 9 bold',padx = 34, pady = 15, command = lambda: todo_gui.toDoList(window))
+btn4.place(x=135, y=290)
 
-btn4 = Button(window, text = "Hang-Man Game", font='Helvetica 9 bold', padx = 15, pady = 15)
-btn4.place(x=210, y=290)
+
 
 
 btn5 = Button(window, text="Exit", font='Helvetica 9 bold', padx = 15, pady = 5, command = window.quit)
